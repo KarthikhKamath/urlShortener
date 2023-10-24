@@ -20,6 +20,11 @@
             justify-content: center;
             margin: auto;
         }
+        .butt{
+            text-align: center;
+            display: flex;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -32,5 +37,15 @@
 
         <button type="submit">Submit</button>
     </form>
+    <button class="signin-button butt">Signin</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signinButton = document.querySelector('.signin-button');
+
+            signinButton.addEventListener('click', function() {
+                window.location.href = '/signup'; // Redirect to /signin
+            });
+        });
+    </script>
 </body>
 </html>

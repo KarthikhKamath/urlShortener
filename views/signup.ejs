@@ -20,6 +20,11 @@
             justify-content: center;
             margin: auto;
         }
+        .butt{
+            text-align: center;
+            display: flex;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +37,17 @@
         <label>Password</label>
         <input type="password" name="password" required>
 
-        <button type="submit">SIgnup</button>
+        <button type="submit">Signup</button>
     </form>
+    <button class="login-button butt">Login</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signinButton = document.querySelector('.login-button');
+
+            signinButton.addEventListener('click', function() {
+                window.location.href = '/login'; // Redirect to /login
+            });
+        });
+    </script>
 </body>
 </html>
