@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body{
+            font-family: 'poppins';
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: auto;
+            gap: 10px;
+        }
+        .signup{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="signup">Signup</h1>
+    <form class="form" action="/user" method="post">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">SIgnup</button>
+    </form>
+</body>
+</html>
