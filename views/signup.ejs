@@ -5,49 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <style>
-        body{
-            font-family: 'poppins';
-        }
-        .form{
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            width: 30%;
-            margin: auto;
-            gap: 10px;
-        }
-        .signup{
-            display: flex;
+            align-items: center;
             justify-content: center;
-            margin: auto;
+            height: 100vh;
         }
-        .butt{
-            text-align: center;
+
+        h1 {
+            color: #333;
+        }
+
+        .form {
             display: flex;
-            margin: auto;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            color: #555;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .head{
+        text-align: center;
+        }
+        .btn{
+            font-family: inherit;
         }
     </style>
 </head>
 <body>
-    <h1 class="signup">Signup</h1>
-    <form class="form" action="/user" method="post">
-        <label>Full Name</label>
-        <input type="text" name="name" required>
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Password</label>
-        <input type="password" name="password" required>
-
-        <button type="submit">Signup</button>
-    </form>
-    <button class="login-button butt">Login</button>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const signinButton = document.querySelector('.login-button');
-
-            signinButton.addEventListener('click', function() {
-                window.location.href = '/login'; // Redirect to /login
-            });
-        });
-    </script>
+    <div>
+        <h1 class="head">Signup</h1>
+        <form class="form" action="/user" method="post">
+            <label>Full Name</label>
+            <input class="btn" type="text" name="name" required>
+            <label>Email</label>
+            <input class="btn" type="email" name="email" required>
+            <label>Password</label>
+            <input class="btn" type="password" name="password" required>
+            <button class="btn" type="submit">Signup</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+    </div>
 </body>
 </html>

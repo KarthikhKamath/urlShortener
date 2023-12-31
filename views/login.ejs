@@ -3,49 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Login</title>
     <style>
-        body{
-            font-family: 'poppins';
-        }
-        .form{
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-            margin: auto;
-            gap: 10px;
-        }
-        .signup{
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
-            margin: auto;
+            align-items: center;
+            height: 100vh;
         }
-        .butt{
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
             text-align: center;
+        }
+
+        .form-container h1 {
+            color: #333;
+        }
+
+        .form {
             display: flex;
-            margin: auto;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .form label {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form button:hover {
+            background-color: #2980b9;
+        }
+
+        .signin-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .signin-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn{
+            font-family: inherit;
         }
     </style>
 </head>
 <body>
-    <h1 class="signup">Login</h1>
-    <form class="form" action="/user/login" method="post">
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Password</label>
-        <input type="password" name="password" required>
-
-        <button type="submit">Submit</button>
-    </form>
-    <button class="signin-button butt">Signin</button>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const signinButton = document.querySelector('.signin-button');
-
-            signinButton.addEventListener('click', function() {
-                window.location.href = '/signup'; // Redirect to /signin
-            });
-        });
-    </script>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form class="form" action="/user/login" method="post">
+            <label>Email</label>
+            <input class="btn" type="email" name="email" required>
+            <label>Password</label>
+            <input class="btn" type="password" name="password" required>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        <div class="signin-link">
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>
 </body>
 </html>
