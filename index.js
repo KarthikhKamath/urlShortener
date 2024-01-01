@@ -24,21 +24,36 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser())
 
-app.use('/url', urlRoute)
+app.use('/url',restrictToLoggedInUsersOnly, urlRoute)
 app.use('/',checkAuth, staticRouter)
 app.use('/user', userRoute)
 
-app.get('/url/:shortId', async (req, res)=>{
-    const shortId = req.params.shortId;
-    const entry = await URL.findOneAndUpdate({
-        shortId
-    }, {$push:{
+app.get("/urls/:shortId", async (req, res) => {
+  const shortId = req.params.shortId;
+  console.log(shortId);
+
+  // Find the URL entry
+  const entry = await URL.findOne({ shortId });
+
+  if (!entry) {
+    return res.status(404).send("URL not found");
+  }
+
+  // Update the visit history
+  await URL.updateOne(
+    { shortId },
+    {
+      $push: {
         visitHistory: {
-            timestamps : Date.now()
-        }
-    }})
-    return res.redirect(entry.redirectUrl)
-})
+          timestamp: Date.now(),
+        },
+      },
+    }
+  );
+
+  // Redirect to the original URL
+  return res.redirect(entry.redirectUrl);
+});
 
 
 

@@ -86,7 +86,7 @@
       <h1 class="head">URL Shortener</h1>
 
       <% if(locals.id) { %>
-        <p>URL Generated: <a href="https://urlshortener-27oh.onrender.com/url/<%= id %>" target="_blank">https://urlshortener-27oh.onrender.com/url/<%= id %></a></p>
+        <p>URL Generated: <a href="https://urlshortener-27oh.onrender.com/urls/<%= id %>" target="_blank">https://urlshortener-27oh.onrender.com/urls/<%= id %></a></p>
       <% } %>
 
       <div>
@@ -100,10 +100,12 @@
       <% if (locals.urls) { %>
         <table>
           <thead>
+            <tr>
             <th>S.no</th>
             <th>ShortId</th>
             <th>Redirect</th>
             <th>Clicks</th>
+            </tr>
           </thead>
           <tbody>
             <% urls.forEach((url, index) => { %>
@@ -119,4 +121,5 @@
       <% } %>
     </div>
   </body>
+
 </html>
